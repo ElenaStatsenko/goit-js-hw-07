@@ -1,4 +1,5 @@
 import { galleryItems } from './gallery-items.js';
+
 // Change code below this line
 console.log(galleryItems);
 
@@ -15,6 +16,19 @@ const images = galleryItems.map(galleryItem => `
 
 gallaryContainer.insertAdjacentHTML('beforeend', images);
 
+gallaryContainer.addEventListener('click', onImageClick);
+function onImageClick (event){
+    event.preventDefault();
+    if (event.target.nodeName !== 'IMG'){
+              return;
+    }
+    const istance = basicLightBox.create (`<img src = "${event.target.dataset.sourse}"} width ="800" height ="600">`);
+ 
+instance.show();
+};
+   
+
+
     
 
 
@@ -25,15 +39,13 @@ gallaryContainer.insertAdjacentHTML('beforeend', images);
 
 // function createGalleryMarkup (galleryItems) {
 //     const galleryMarkup = galleryItems.map(({preview, original, description}) => {
-//         return `<li class="gallery__item">
+//        `<li class="gallery__item">
 //         <a class="gallery__link" href="${original}">
 //           <img class="gallery__image"src= "${preview}" alt="${description}" />
 //         </a>
-//       </li>`
-//       ;
-//       console.log(galleryMarkup[0]);
+//       </li>`;
 //     }).join();
-// }
+// };
 
 
 
