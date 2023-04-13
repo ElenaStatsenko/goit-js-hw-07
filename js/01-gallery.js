@@ -17,16 +17,38 @@ const images = galleryItems.map(galleryItem => `
 gallaryContainer.insertAdjacentHTML('beforeend', images);
 
 gallaryContainer.addEventListener('click', onImageClick);
+
 function onImageClick (event){
     event.preventDefault();
+
     if (event.target.nodeName !== 'IMG'){
-              return;
+      return;
     }
-    const istance = basicLightBox.create (`<img src = "${event.target.dataset.sourse}"} width ="800" height ="600">`);
+
+    const instance = basicLightbox.create(`<img src="${event.target.dataset.sourse}"} width ="800" height ="600">`);
  
-instance.show();
+    instance.show();
 };
    
+
+
+// function onImageClick (evt){ 
+    
+//   // запрет стандартных действий
+//   evt.preventDefault(); 
+
+//   // проверка на картинку
+//   if(evt.target.nodeName !== "IMG") {
+//     return;
+//   }
+  
+//   // а если клацаем на картинку
+//   const instance = basicLightbox.create(`
+//     <img src="${evt.target.dataset.source}" width="800" height = "600">` 
+//   ); 
+//   instance.show(); 
+  
+// };
 
 
     
